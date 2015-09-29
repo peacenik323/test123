@@ -1,4 +1,11 @@
-# test123
+
+research and dev 651 266 5552
+left vm 9/29
+case number 15140407
+spoke to Gina at SPPD
+
+
+
 http://www.co.ramsey.mn.us/sheriff/services/rssd.htm
 
 
