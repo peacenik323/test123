@@ -1,0 +1,528 @@
+backtrack login stuff
+http://www.backtrack-linux.org/forums/showthread.php?t=40293
+http://www.backtrack-linux.org/forums/showthread.php?t=40286
+http://www.securitygeeks.net/2013/03/how-to-install-backtrack-in-android.html
+http://serials.ws/all/?l=a
+
+winrm.cmd
+
+
+Setting up hosted (shared) networking
+
+Run as admin:
+C:\Windows\system32>netsh wlan start hostednetwork
+The hosted network started.
+
+TODO:
+1. Setup a VPN on local machine (maybe)
+2. use xfinitywifi ability to connect to the net or other method to find an ip/connect to a vpn (add network)
+
+
+2. Do what travis recommended (XFINITY Free WiFi Hack For Free Internet #2 - not sure if changing or spoofing mac address, find out if can spoof, if so what is benefit), copy config to phone
+
+
+
+
+
+
+
+
+
+
+xfin wifi connection properties
+
+C:\Windows\system32>netsh wlan start hostednetwork
+
+
+Connection-specific DNS Suffix: 
+Description: Qualcomm Atheros AR5009 802.11a/g/n WiFi Adapter
+Physical Address: ‎00-23-4E-2F-55-47
+DHCP Enabled: Yes
+IPv4 Address: 192.168.1.10
+IPv4 Subnet Mask: 255.255.255.0
+Lease Obtained: Thursday, June 04, 2015 5:17:55 PM
+Lease Expires: Friday, June 05, 2015 1:26:30 AM
+IPv4 Default Gateway: 192.168.1.1
+IPv4 DHCP Server: 192.168.1.1
+IPv4 DNS Servers: 75.75.75.75, 75.75.76.76
+IPv4 WINS Server: 
+NetBIOS over Tcpip Enabled: Yes
+Link-local IPv6 Address: fe80::29c0:588d:4b23:aa31%31
+IPv6 Default Gateway: 
+IPv6 DNS Servers: 2001:558:feed::2, 2001:558:feed::1
+
+
+Connection-specific DNS Suffix: 
+Description: Microsoft Virtual WiFi Miniport Adapter #3
+Physical Address: ‎22-23-4E-2F-55-47
+DHCP Enabled: No
+Autoconfiguration IPv4 Address: 169.254.217.73
+IPv4 Subnet Mask: 255.255.0.0
+IPv4 Default Gateway: 192.168.1.1
+IPv4 DNS Servers: 75.75.75.75, 75.75.76.76
+IPv4 WINS Server: 
+NetBIOS over Tcpip Enabled: Yes
+Link-local IPv6 Address: fe80::8092:1eca:b258:d949%32
+IPv6 Default Gateway: 
+IPv6 DNS Server: 
+
+For maximum security, you may want to create a port forwarding rule that forwards a random “external port” – such as 23243 – to “internal port” 1723 on your computer. This will allow you to connect to the VPN server using port 23243, and will protect you from malicious programs that scan and attempt to automatically connect to VPN servers running on the default port. 
+
+netsh advfirewall firewall add rule name=”RDP_23243” protocol=TCP dir=in localip=10.1.1.110  localport=3340 action=allow
+
+netsh interface portproxy add v4tov4 listenport=23243 listenaddress=	 connectaddress=169.254.217.73
+
+netstat -ano | findstr :23243
+
+
+
+=Random notes=
+3544 teredo
+3389 rdp port
+23 telnet port
+event delivery port 5985 event collector log subscription
+
+Known advocates for OWA
+
+
+=MC system=
+WPR v7.0.iso
+
+SysClass.Dll,StorageCoInstaller
+SysClass.Dll,CriticalDeviceCoInstaller
+PrintWindows Network Diagnostics Publisher details 
+
+Issues found 
+Problem with wireless adapter or access pointProblem with wireless adapter or access point Fixed Fixed 
+Reset the wireless adapter Completed 
+Investigate router or access point issues Not run 
+Refer to Windows Help and Support for more information about wireless connectivity problems Not run 
+ 
+
+Issues found Detection details 
+
+5 Problem with wireless adapter or access point Fixed Fixed 
+ 
+Reset the wireless adapter Completed 
+ 
+InformationalNetwork Diagnostics Log 
+File Name:  1440559B-2198-452C-84CD-0DEA3A7E43BB.Repair.1.etl 
+ 
+ 
+Investigate router or access point issues Not run 
+ 
+If you're connected to a hotspot or domain network, contact the network administrator. Otherwise: 1. Unplug or turn off the device. 2. After all the lights on the device are off, wait at least 10 seconds. 3. Turn the device back on or plug it back into the power outlet. To restart a router or access point that has a built-in battery, press and quickly release the Reset button. 
+Refer to Windows Help and Support for more information about wireless connectivity problems Not run 
+ 
+Windows cannot resolve your wireless connectivity issue. 
+ 
+
+Detection details Expand 
+
+InformationalDiagnostics Information (Network Adapter) 
+Details about network adapter diagnosis: 
+
+Network adapter Wireless Network Connection 5 driver information:
+
+   Description . . . . . . . . . . : Qualcomm Atheros AR5009 802.11a/g/n WiFi Adapter
+   Manufacturer  . . . . . . . . . : Atheros Communications Inc.
+   Provider  . . . . . . . . . . . : Microsoft
+   Version   . . . . . . . . . . . : 2.0.0.74
+   Inf File Name . . . . . . . . . : C:\Windows\INF\netathrx.inf
+   Inf File Date . . . . . . . . . : Monday, July 13, 2009  8:37:24 PM
+   Section Name  . . . . . . . . . : ATHR_DEV_OS61_H002A.ndi
+   Hardware ID . . . . . . . . . . : pci\ven_168c&dev_002a&subsys_1381103c
+   Instance Status Flags . . . . . : 0x180200a
+   Device Manager Status Code  . . : 0
+   IfType  . . . . . . . . . . . . : 71
+   Physical Media Type . . . . . . : 9
+
+ 
+ 
+InformationalDiagnostics Information (Wireless Connectivity) 
+Details about wireless connectivity diagnosis: 
+
+Information for connection being diagnosed
+ Interface GUID: 4b280bf0-5d8e-4ccb-b01f-d429aac3b626
+ Interface name: Qualcomm Atheros AR5009 802.11a/g/n WiFi Adapter
+ Interface type: Native WiFi
+
+Connection incident diagnosed
+ Auto Configuration ID: 1
+ Connection ID: 1
+
+Connection status summary
+ Connection started at: 2015-06-06 00:16:12-593
+ Profile match: Success
+ Pre-Association: Success
+ Association: Success
+ Security and Authentication: Success
+
+List of visible access point(s): 57 item(s) total, 57 item(s) displayed
+        BSSID		BSS Type PHY	Signal(dB)	Chnl/freq    SSID
+-------------------------------------------------------------------------
+C6-A4-62-FF-90-10	Infra	 <unknown>	-40		6	 xfinitywifi
+98-6B-3D-9D-55-10	Infra	 <unknown>	-70		6	 HOME-5512
+96-6B-3D-9D-55-10	Infra	 <unknown>	-71		6	 xfinitywifi
+00-00-00-00-00-00	Infra	 g	-68		6	 (Unnamed Network)
+84-C9-B2-67-F7-2A	Infra	 g	-83		5	 christoph
+CC-A4-62-FF-90-10	Infra	 <unknown>	-39		6	 HOME-9012
+C2-A4-62-FF-90-10	Infra	 <unknown>	-40		6	 (Unnamed Network)
+00-24-7B-29-E3-0C	Infra	 g	-83		6	 myqwest5099
+92-6B-3D-9D-55-10	Infra	 <unknown>	-70		6	 (Unnamed Network)
+00-24-7B-B5-73-46	Infra	 g	-62		6	 myqwest1525
+28-C6-8E-AA-1E-63	Infra	 <unknown>	-82		6	 NETGEAR7
+6C-B0-CE-1F-98-2D	Infra	 <unknown>	-90		6	 SAMUM2
+58-23-8C-35-44-15	Infra	 <unknown>	-43		1	 HOME-4415
+08-86-3B-A1-12-1A	Infra	 <unknown>	-76		4	 belkin.21a
+14-AB-F0-0A-E4-30	Infra	 <unknown>	-85		6	 aMidsummerNightsReam
+14-CF-E2-E1-B7-90	Infra	 <unknown>	-42		1	 Eskajer
+20-C9-D0-A0-B4-68	Infra	 <unknown>	-70		1	 Gary's Wi-Fi Network
+96-1A-CA-98-78-40	Infra	 <unknown>	-87		6	 xfinitywifi
+20-73-55-19-65-80	Infra	 <unknown>	-69		11	 HOME-6582
+26-73-55-19-65-80	Infra	 <unknown>	-64		11	 xfinitywifi
+06-1D-D5-94-4A-50	Infra	 <unknown>	-79		11	 xfinitywifi
+44-32-C8-C3-61-38	Infra	 <unknown>	-54		11	 HOME-6138
+46-32-C8-C3-61-3A	Infra	 <unknown>	-53		11	 xfinitywifi
+22-73-55-19-65-80	Infra	 <unknown>	-62		11	 (Unnamed Network)
+46-32-C8-C3-61-39	Infra	 <unknown>	-53		11	 (Unnamed Network)
+B8-3E-59-2B-03-C3	Infra	 <unknown>	-81		6	 (Unnamed Network)
+20-C9-D0-A0-B4-69	Infra	 <unknown>	-80		5260000	 Gary's Wi-Fi Network
+16-AB-F0-0D-4B-20	Infra	 <unknown>	-85		6	 xfinitywifi
+5A-23-8C-35-44-16	Infra	 <unknown>	-45		1	 (Unnamed Network)
+CE-35-40-4D-03-3B	Infra	 <unknown>	-58		1	 xfinitywifi
+00-24-B2-D5-8C-D0	Infra	 <unknown>	-66		3	 NETGEAR
+14-AB-F0-0D-4B-20	Infra	 <unknown>	-88		6	 Tower of London
+D8-97-BA-77-89-5A	Infra	 <unknown>	-77		11	 xfinitywifi
+92-1A-CA-98-78-40	Infra	 <unknown>	-88		6	 (Unnamed Network)
+12-AB-F0-0A-E4-30	Infra	 <unknown>	-86		6	 (Unnamed Network)
+D8-97-BA-D0-D8-6A	Infra	 <unknown>	-87		6	 xfinitywifi
+D8-97-BA-D0-D8-68	Infra	 <unknown>	-87		6	 HOME-A1FC-2.4
+12-AB-F0-0D-4B-20	Infra	 <unknown>	-90		6	 (Unnamed Network)
+90-1A-CA-98-78-40	Infra	 <unknown>	-87		6	 barrys wifi
+C4-27-95-2A-F8-16	Infra	 <unknown>	-83		1	 (Unnamed Network)
+F0-79-59-E9-E5-10	Infra	 <unknown>	-89		6	 ASUS
+06-F8-93-43-18-20	Infra	 <unknown>	-88		6	 xfinitywifi
+0C-F8-93-43-18-20	Infra	 <unknown>	-87		6	 HOME-1822
+02-F8-93-43-18-20	Infra	 <unknown>	-88		6	 (Unnamed Network)
+CC-35-40-CF-C7-5F	Infra	 <unknown>	-84		1	 glean
+CE-35-40-CF-C7-50	Infra	 <unknown>	-82		1	 (Unnamed Network)
+16-AB-F0-0A-E4-30	Infra	 <unknown>	-86		6	 xfinitywifi
+CE-35-40-4D-03-3A	Infra	 <unknown>	-62		1	 (Unnamed Network)
+D8-97-BA-D0-D8-69	Infra	 <unknown>	-88		6	 (Unnamed Network)
+8E-04-FF-B6-86-C2	Infra	 <unknown>	-69		1	 (Unnamed Network)
+C6-27-95-2A-F8-18	Infra	 <unknown>	-82		1	 xfinitywifi
+CE-35-40-CF-C7-51	Infra	 <unknown>	-85		1	 xfinitywifi
+A2-E4-CB-55-8B-48	Infra	 <unknown>	-85		8	 New Mommy
+CE-35-40-5B-59-8A	Infra	 <unknown>	-77		1	 (Unnamed Network)
+C6-27-95-2A-F8-17	Infra	 <unknown>	-81		1	 (Unnamed Network)
+B4-75-0E-77-88-01	Infra	 g	-89		3	 NANCY2DAVES
+BC-CA-B5-B6-C0-50	Infra	 g	-88		6	 CRAIGS-
+
+Connection History
+
+ Information for Auto Configuration ID 1
+
+  List of visible networks: 38 item(s) total, 38 item(s) displayed
+  BSS Type PHY	Security	Signal(RSSI)	Compatible	SSID
+  ------------------------------------------------------------------------------
+  Infra	 <unknown>	No		100	Yes		xfinitywifi
+  Infra	 <unknown>	Yes		58	Yes		HOME-5512
+  Infra	 g	No		64	Yes		(Unnamed Network)
+  Infra	 g	Yes		34	Yes		christoph
+  Infra	 <unknown>	Yes		100	Yes		HOME-9012
+  Infra	 <unknown>	Yes		100	Yes		(Unnamed Network)
+  Infra	 g	Yes		30	Yes		myqwest5099
+  Infra	 g	Yes		72	Yes		myqwest1525
+  Infra	 <unknown>	Yes		34	Yes		NETGEAR7
+  Infra	 <unknown>	Yes		16	Yes		SAMUM2
+  Infra	 <unknown>	Yes		100	Yes		HOME-4415
+  Infra	 <unknown>	Yes		48	Yes		belkin.21a
+  Infra	 <unknown>	Yes		30	Yes		aMidsummerNightsReam
+  Infra	 <unknown>	Yes		100	Yes		Eskajer
+  Infra	 <unknown>	Yes		60	Yes		Gary's Wi-Fi Network
+  Infra	 <unknown>	Yes		62	Yes		HOME-6582
+  Infra	 <unknown>	Yes		92	Yes		HOME-6138
+  Infra	 <unknown>	Yes		52	Yes		HOME-608D-2.4
+  Infra	 <unknown>	Yes		100	Yes		(Unnamed Network)
+  Infra	 <unknown>	Yes		36	Yes		(Unnamed Network)
+  Infra	 <unknown>	Yes		72	Yes		Jack
+  Infra	 <unknown>	Yes		68	Yes		NETGEAR
+  Infra	 <unknown>	Yes		18	Yes		Tower of London
+  Infra	 <unknown>	Yes		26	Yes		Lourdes
+  Infra	 <unknown>	Yes		18	Yes		HOME-A1FC-2.4
+  Infra	 <unknown>	Yes		18	Yes		barrys wifi
+  Infra	 <unknown>	Yes		34	Yes		(Unnamed Network)
+  Infra	 <unknown>	Yes		44	Yes		Leona Corki Bot
+  Infra	 <unknown>	Yes		18	Yes		Waggonquest
+  Infra	 <unknown>	Yes		16	Yes		ASUS
+  Infra	 <unknown>	Yes		26	Yes		HOME-1822
+  Infra	 <unknown>	Yes		32	Yes		glean
+  Infra	 <unknown>	No		26	Yes		sever228-guest
+  Infra	 g	No		28	Yes		City of Minneapolis Public WiFi
+  Infra	 <unknown>	Yes		30	Yes		New Mommy
+  Infra	 <unknown>	Yes		38	Yes		Beige Wizard
+  Infra	 g	Yes		16	Yes		NANCY2DAVES
+  Infra	 g	No		26	Yes		USI Wireless
+
+  List of preferred networks: 30 item(s)
+   Profile: MarriottGuest
+    SSID: MarriottGuest
+    SSID length: 13
+    Connection mode: Infra
+    Security: No
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: whospayinit
+    SSID: whospayinit
+    SSID length: 11
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: Pleasedontdocokeinthebathroom
+    SSID: Pleasedontdocokeinthebathroom
+    SSID length: 29
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: CenturyLink4235
+    SSID: CenturyLink4235
+    SSID length: 15
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: SkyNet
+    SSID: SkyNet
+    SSID length: 6
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: WiFiRSU_ef9f2
+    SSID: WiFiRSU_ef9f2
+    SSID length: 13
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: billz s5
+    SSID: billz s5
+    SSID length: 8
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: wood78
+    SSID: wood78
+    SSID length: 6
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: The Laundry Doctor
+    SSID: The Laundry Doctor
+    SSID length: 18
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+   Profile: mine-not-yours
+    SSID: mine-not-yours
+    SSID length: 14
+    Connection mode: Infra
+    Security: Yes
+    Set by group policy: No
+    Connect even if network is not broadcasting: No
+    Connectable: No
+     Reason: 0x00028002
+ 
+ 
+ 
+InformationalDiagnostics Information (Wireless Connectivity) 
+Details about wireless connectivity diagnosis: 
+
+For complete information about this session see the wireless connectivity information event.
+
+Helper Class: Auto Configuration
+ Initialize status: Success
+
+Information for connection being diagnosed
+ Interface GUID: 4b280bf0-5d8e-4ccb-b01f-d429aac3b626
+ Interface name: Qualcomm Atheros AR5009 802.11a/g/n WiFi Adapter
+ Interface type: Native WiFi
+
+Result of diagnosis: There may be problem
+
+
+
+
+ 
+ 
+InformationalNetwork Diagnostics Log 
+File Name:  1440559B-2198-452C-84CD-0DEA3A7E43BB.Diagnose.0.etl 
+ 
+InformationalOther Networking Configuration and Logs 
+File Name:  NetworkConfiguration.cab 
+ 
+Collection information 
+Computer Name:  PRINCESS 
+Windows Version: 6.1 
+Architecture: amd64 
+Time: Saturday, June 06, 2015 12:28:20 AM 
+
+Publisher details Expand 
+
+Windows Network Diagnostics 
+Detects problems with network connectivity. 
+Package Version: 1.0 
+Publisher: Microsoft Windows 
+
+
+- <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+- <System>
+  <Provider Name="Service Control Manager" Guid="{555908d1-a6d7-4695-8e1e-26931d2012f4}" EventSourceName="Service Control Manager" /> 
+  <EventID Qualifiers="49152">7001</EventID> 
+  <Version>0</Version> 
+  <Level>2</Level> 
+  <Task>0</Task> 
+  <Opcode>0</Opcode> 
+  <Keywords>0x8080000000000000</Keywords> 
+  <TimeCreated SystemTime="2015-06-06T05:33:53.977295600Z" /> 
+  <EventRecordID>295011</EventRecordID> 
+  <Correlation /> 
+  <Execution ProcessID="592" ThreadID="2380" /> 
+  <Channel>System</Channel> 
+  <Computer>princess</Computer> 
+  <Security /> 
+  </System>
+- <EventData>
+  <Data Name="param1">HomeGroup Provider</Data> 
+  <Data Name="param2">Function Discovery Provider Host</Data> 
+  <Data Name="param3">%%1058</Data> 
+  </EventData>
+  </Event>
+
+  Extensions
+
+Bookmark Manager
+chrome-extension://gmlllbghnfkpflemihljekbapjopfjik/_generated_background_page.html
+
+chrome-devtools://devtools/bundled/devtools.html?&remoteBase=https://chrome-devtools-frontend.appspo…
+inspect
+
+chrome-devtools://devtools/bundled/devtools.html?&remoteBase=https://chrome-devtools-frontend.appspo…
+
+<div class="cookie-site" title="microsoftinternetexplorer.112.2o7.net">microsoftinternetexplorer.112.2o7.net</div>
+
+Logfile of Trend Micro HijackThis v2.0.5
+Scan saved at 1:14:02 AM, on 6/6/2015
+Platform: Windows 7 SP1 (WinNT 6.00.3505)
+MSIE: Internet Explorer v11.0 (11.00.9600.17801)
+
+
+Boot mode: Normal
+
+Running processes:
+C:\Program Files\AVAST Software\Avast\avastui.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+C:\Users\Michelle\Downloads\HijackThis.exe
+
+R1 - HKCU\Software\Microsoft\Internet Explorer\Main,Default_Page_URL = about:blank
+R1 - HKCU\Software\Microsoft\Internet Explorer\Main,Search Page = http://go.microsoft.com/fwlink/?LinkId=54896
+R1 - HKLM\Software\Microsoft\Internet Explorer\Main,Default_Page_URL = about:blank
+R1 - HKLM\Software\Microsoft\Internet Explorer\Main,Default_Search_URL = http://search.v9.com/web/?type=ds&ts=1412547052&from=cor&uid=HitachiXHTS543232A7A384_E20342332NX4BP2NX4BPX&i=psd&t=349f19339&q={searchTerms}
+R1 - HKLM\Software\Microsoft\Internet Explorer\Main,Search Page = http://search.v9.com/web/?type=ds&ts=1412547052&from=cor&uid=HitachiXHTS543232A7A384_E20342332NX4BP2NX4BPX&i=psd&t=349f19339&q={searchTerms}
+R0 - HKLM\Software\Microsoft\Internet Explorer\Main,Start Page = about:blank
+R0 - HKLM\Software\Microsoft\Internet Explorer\Search,SearchAssistant = 
+R0 - HKLM\Software\Microsoft\Internet Explorer\Search,CustomizeSearch = 
+R0 - HKLM\Software\Microsoft\Internet Explorer\Main,Local Page = C:\Windows\SysWOW64\blank.htm
+F2 - REG:system.ini: UserInit=userinit.exe
+O2 - BHO: AMD SteadyVideo BHO - {6C680BAE-655C-4E3D-8FC4-E6A520C3D928} - C:\Program Files (x86)\amd\SteadyVideo\SteadyVideo.dll
+O2 - BHO: Java(tm) Plug-In SSV Helper - {761497BB-D6F0-462C-B6EB-D4DAF1D92D43} - C:\Program Files (x86)\Java\jre1.8.0_45\bin\ssv.dll
+O2 - BHO: Windows Live ID Sign-in Helper - {9030D464-4C02-4ABF-8ECC-5164760863C6} - C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live\WindowsLiveLogin.dll
+O2 - BHO: Java(tm) Plug-In 2 SSV Helper - {DBC80044-A445-435b-BC74-9C25C1C588A9} - C:\Program Files (x86)\Java\jre1.8.0_45\bin\jp2ssv.dll
+O4 - HKLM\..\Run: [AvastUI.exe] "C:\Program Files\AVAST Software\Avast\AvastUI.exe" /nogui
+O4 - HKCU\..\Run: [CCleaner Monitoring] "C:\Program Files\CCleaner\CCleaner64.exe" /MONITOR
+O4 - HKUS\S-1-5-19\..\Run: [Sidebar] %ProgramFiles%\Windows Sidebar\Sidebar.exe /autoRun (User 'LOCAL SERVICE')
+O4 - HKUS\S-1-5-19\..\RunOnce: [mctadmin] C:\Windows\System32\mctadmin.exe (User 'LOCAL SERVICE')
+O4 - HKUS\S-1-5-20\..\Run: [Sidebar] %ProgramFiles%\Windows Sidebar\Sidebar.exe /autoRun (User 'NETWORK SERVICE')
+O4 - HKUS\S-1-5-20\..\RunOnce: [mctadmin] C:\Windows\System32\mctadmin.exe (User 'NETWORK SERVICE')
+O4 - HKUS\S-1-5-18\..\Run: [GoogleChromeAutoLaunch_D767CAD71DA7DD1CDFD0D3EF6D1B23BA] "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --no-startup-window (User 'SYSTEM')
+O4 - HKUS\.DEFAULT\..\Run: [GoogleChromeAutoLaunch_D767CAD71DA7DD1CDFD0D3EF6D1B23BA] "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --no-startup-window (User 'Default user')
+O8 - Extra context menu item: E&xport to Microsoft Excel - res://C:\PROGRA~2\MICROS~1\Office14\EXCEL.EXE/3000
+O8 - Extra context menu item: Se&nd to OneNote - res://C:\PROGRA~2\MICROS~1\Office14\ONBttnIE.dll/105
+O9 - Extra button: @C:\Program Files (x86)\Hewlett-Packard\HP Support Framework\Resources\HPNetworkCheck\HPNetworkCheckPlugin.dll,-103 - {25510184-5A38-4A99-B273-DCA8EEF6CD08} - C:\Program Files (x86)\Hewlett-Packard\HP Support Framework\Resources\HPNetworkCheck\NCLauncherFromIE.exe
+O9 - Extra 'Tools' menuitem: @C:\Program Files (x86)\Hewlett-Packard\HP Support Framework\Resources\HPNetworkCheck\HPNetworkCheckPlugin.dll,-102 - {25510184-5A38-4A99-B273-DCA8EEF6CD08} - C:\Program Files (x86)\Hewlett-Packard\HP Support Framework\Resources\HPNetworkCheck\NCLauncherFromIE.exe
+O9 - Extra button: Fiddler - {CF819DA3-9882-4944-ADF5-6EF17ECF3C6E} - "C:\Program Files (x86)\Fiddler2\Fiddler.exe" (file missing)
+O9 - Extra 'Tools' menuitem: Fiddler - {CF819DA3-9882-4944-ADF5-6EF17ECF3C6E} - "C:\Program Files (x86)\Fiddler2\Fiddler.exe" (file missing)
+O10 - Unknown file in Winsock LSP: c:\program files (x86)\common files\microsoft shared\windows live\wlidnsp.dll
+O10 - Unknown file in Winsock LSP: c:\program files (x86)\common files\microsoft shared\windows live\wlidnsp.dll
+O11 - Options group: [ACCELERATED_GRAPHICS] Accelerated graphics
+O17 - HKLM\System\CCS\Services\Tcpip\..\{804160A7-602D-4F71-8094-8FD2A6B3BFE7}: NameServer = 75.75.75.75,75.75.76.76
+O18 - Protocol: linkscanner - (no CLSID) - (no file)
+O23 - Service: Adobe Flash Player Update Service (AdobeFlashPlayerUpdateSvc) - Adobe Systems Incorporated - C:\Windows\SysWOW64\Macromed\Flash\FlashPlayerUpdateService.exe
+O23 - Service: @%SystemRoot%\system32\Alg.exe,-112 (ALG) - Unknown owner - C:\Windows\System32\alg.exe (file missing)
+O23 - Service: AMD External Events Utility - Unknown owner - C:\Windows\system32\atiesrxx.exe (file missing)
+O23 - Service: AMD FUEL Service - Advanced Micro Devices, Inc. - C:\Program Files\ATI Technologies\ATI.ACE\Fuel\Fuel.Service.exe
+O23 - Service: Apple Mobile Device - Apple Inc. - C:\Program Files (x86)\Common Files\Apple\Mobile Device Support\AppleMobileDeviceService.exe
+O23 - Service: Avast Antivirus (avast! Antivirus) - Avast Software s.r.o. - C:\Program Files\AVAST Software\Avast\AvastSvc.exe
+O23 - Service: Bonjour Service - Apple Inc. - C:\Program Files\Bonjour\mDNSResponder.exe
+O23 - Service: @%SystemRoot%\system32\efssvc.dll,-100 (EFS) - Unknown owner - C:\Windows\System32\lsass.exe (file missing)
+O23 - Service: @%systemroot%\system32\fxsresm.dll,-118 (Fax) - Unknown owner - C:\Windows\system32\fxssvc.exe (file missing)
+O23 - Service: Google Update Service (gupdate) (gupdate) - Google Inc. - C:\Program Files (x86)\Google\Update\GoogleUpdate.exe
+O23 - Service: Google Update Service (gupdatem) (gupdatem) - Google Inc. - C:\Program Files (x86)\Google\Update\GoogleUpdate.exe
+O23 - Service: HP Support Assistant Service - Hewlett-Packard Company - C:\Program Files (x86)\Hewlett-Packard\HP Support Framework\hpsa_service.exe
+O23 - Service: HP Client Services (HPClientSvc) - Hewlett-Packard Company - C:\Program Files\Hewlett-Packard\HP Client Services\HPClientServices.exe
+O23 - Service: HP Quick Synchronization Service (HPDrvMntSvc.exe) - Hewlett-Packard Company - C:\Program Files (x86)\Hewlett-Packard\Shared\HPDrvMntSvc.exe
+O23 - Service: HP Software Framework Service (hpqwmiex) - Hewlett-Packard Company - C:\Program Files (x86)\Hewlett-Packard\Shared\hpqWmiEx.exe
+O23 - Service: IconMan_R - Realsil Microelectronics Inc. - C:\Program Files (x86)\Realtek\Realtek PCIE Card Reader\RIconMan.exe
+O23 - Service: @%SystemRoot%\system32\ieetwcollectorres.dll,-1000 (IEEtwCollectorService) - Unknown owner - C:\Windows\system32\IEEtwCollector.exe (file missing)
+O23 - Service: iPod Service - Apple Inc. - C:\Program Files\iPod\bin\iPodService.exe
+O23 - Service: @keyiso.dll,-100 (KeyIso) - Unknown owner - C:\Windows\system32\lsass.exe (file missing)
+O23 - Service: @comres.dll,-2797 (MSDTC) - Unknown owner - C:\Windows\System32\msdtc.exe (file missing)
+O23 - Service: @%systemroot%\system32\psbase.dll,-300 (ProtectedStorage) - Unknown owner - C:\Windows\system32\lsass.exe (file missing)
+O23 - Service: @%systemroot%\system32\Locator.exe,-2 (RpcLocator) - Unknown owner - C:\Windows\system32\locator.exe (file missing)
+O23 - Service: @%SystemRoot%\system32\samsrv.dll,-1 (SamSs) - Unknown owner - C:\Windows\system32\lsass.exe (file missing)
+O23 - Service: @%systemroot%\system32\spoolsv.exe,-1 (Spooler) - Unknown owner - C:\Windows\System32\spoolsv.exe (file missing)
+O23 - Service: @%SystemRoot%\system32\sppsvc.exe,-101 (sppsvc) - Unknown owner - C:\Windows\system32\sppsvc.exe (file missing)
+O23 - Service: @%SystemRoot%\system32\stlang64.dll,-10101 (STacSV) - IDT, Inc. - C:\Program Files\IDT\WDM\STacSV64.exe
+O23 - Service: @%SystemRoot%\system32\ui0detect.exe,-101 (UI0Detect) - Unknown owner - C:\Windows\system32\UI0Detect.exe (file missing)
+O23 - Service: @%SystemRoot%\system32\vaultsvc.dll,-1003 (VaultSvc) - Unknown owner - C:\Windows\system32\lsass.exe (file missing)
+O23 - Service: @%SystemRoot%\system32\vds.exe,-100 (vds) - Unknown owner - C:\Windows\System32\vds.exe (file missing)
+O23 - Service: @%systemroot%\system32\vssvc.exe,-102 (VSS) - Unknown owner - C:\Windows\system32\vssvc.exe (file missing)
+O23 - Service: @%SystemRoot%\system32\Wat\WatUX.exe,-601 (WatAdminSvc) - Unknown owner - C:\Windows\system32\Wat\WatAdminSvc.exe (file missing)
+O23 - Service: @%systemroot%\system32\wbengine.exe,-104 (wbengine) - Unknown owner - C:\Windows\system32\wbengine.exe (file missing)
+O23 - Service: @%Systemroot%\system32\wbem\wmiapsrv.exe,-110 (wmiApSrv) - Unknown owner - C:\Windows\system32\wbem\WmiApSrv.exe (file missing)
+
+--
+End of file - 9233 bytes
+
+
+                                  
