@@ -82,6 +82,7 @@ monica.jensen@co.dakota.mn.us
 ==2015-09-21 attempt to procure records and data==
 www.aclu-mn.org
 (651) 645-40972300 Myrtle Ave #180, St Paul, MN 55114
+Jana at 651.645.4097 x123.
 
 Questions:
 Can public inspect jail facilities?
